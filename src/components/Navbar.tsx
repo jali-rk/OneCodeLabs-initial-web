@@ -1,6 +1,6 @@
 
 import React from 'react';
-import logoIcon from '../public/assets/Burlywood_icon.png';
+import logoIcon from '../assets/Burlywood_icon.png';
 
 const Navbar: React.FC = () => {
   // Physics-based smooth scrolling with easing
