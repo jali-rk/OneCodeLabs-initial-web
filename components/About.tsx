@@ -37,7 +37,7 @@ const About: React.FC = () => {
               />
             </div>
             <div>
-              <p className="text-white font-bold text-lg leading-none uppercase">Alex Rivera</p>
+              <p className="text-white font-bold text-lg leading-none uppercase">W Kumarasiri</p>
               <p className="text-pearl/50 text-[10px] uppercase tracking-[0.2em] mt-1">Founder & CEO</p>
             </div>
           </div>
