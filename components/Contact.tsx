@@ -1,7 +1,27 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    interest: 'Platform Development',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Construct mailto link
+    const subject = encodeURIComponent(`New Inquiry: ${formData.interest}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nInterested In: ${formData.interest}\n\nMessage:\n${formData.message}`
+    );
+    
+    // Open email client
+    window.location.href = `mailto:hello@onecodelabs.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section className="py-24 bg-cetacean border-t border-white/5" id="contact">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20">
@@ -49,14 +69,16 @@ const Contact: React.FC = () => {
         <div className="bg-white/5 p-10 rounded-[2rem] border border-white/10 backdrop-blur-sm relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -z-10 transition-all duration-500 group-hover:bg-primary/10"></div>
           
-          <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-pearl/50 ml-1">Full Name</label>
                 <input 
                   className="w-full bg-cetacean/60 border border-white/10 rounded-2xl px-5 py-4 text-lavender focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-lavender/20" 
                   placeholder="John Doe" 
-                  type="text" 
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
               <div className="space-y-2">
@@ -64,14 +86,20 @@ const Contact: React.FC = () => {
                 <input 
                   className="w-full bg-cetacean/60 border border-white/10 rounded-2xl px-5 py-4 text-lavender focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-lavender/20" 
                   placeholder="john@company.com" 
-                  type="email" 
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
             </div>
             
             <div className="space-y-2">
               <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-pearl/50 ml-1">Interested In</label>
-              <select className="w-full bg-cetacean/60 border border-white/10 rounded-2xl px-5 py-4 text-lavender focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none cursor-pointer">
+              <select 
+                className="w-full bg-cetacean/60 border border-white/10 rounded-2xl px-5 py-4 text-lavender focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none cursor-pointer"
+                value={formData.interest}
+                onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
+              >
                 <option className="bg-cetacean">Platform Development</option>
                 <option className="bg-cetacean">Cloud Migration</option>
                 <option className="bg-cetacean">Security Audit</option>
@@ -85,10 +113,12 @@ const Contact: React.FC = () => {
                 className="w-full bg-cetacean/60 border border-white/10 rounded-2xl px-5 py-4 text-lavender focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-lavender/20" 
                 placeholder="Tell us about your project..." 
                 rows={4}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               ></textarea>
             </div>
             
-            <button className="w-full bg-primary hover:bg-primary/90 text-white font-black py-5 rounded-2xl transition-all transform active:scale-[0.98] shadow-2xl shadow-primary/30 text-lg">
+            <button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white font-black py-5 rounded-2xl transition-all transform active:scale-[0.98] shadow-2xl shadow-primary/30 text-lg">
               Send Message
             </button>
           </form>

@@ -2,10 +2,11 @@
 import React from 'react';
 
 const steps = [
-  { id: '01', title: 'Discover', description: 'Requirement gathering & strategic planning.', color: 'border-primary' },
-  { id: '02', title: 'Build', description: 'Rapid development with security first mindset.', color: 'border-primary' },
-  { id: '03', title: 'Deploy', description: 'Automated scaling & global distribution.', color: 'border-burlywood' },
-  { id: '04', title: 'Operate', description: '24/7 maintenance & iterative optimization.', color: 'border-burlywood' },
+  { id: '01', title: 'Discover', description: 'Requirement gathering & strategic planning.', color: 'border-primary', gradient: false },
+  { id: '02', title: 'Build', description: 'Rapid development with security first mindset.', color: 'border-primary', gradient: false },
+  { id: '03', title: 'Verify', description: 'Comprehensive testing & production readiness validation.', color: '', gradient: true },
+  { id: '04', title: 'Deploy', description: 'Automated scaling & global distribution.', color: 'border-burlywood', gradient: false },
+  { id: '05', title: 'Operate', description: '24/7 maintenance & iterative optimization.', color: 'border-burlywood', gradient: false },
 ];
 
 const Process: React.FC = () => {
@@ -19,10 +20,24 @@ const Process: React.FC = () => {
         
         <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-16 md:gap-4 process-line">
           {steps.map((step, idx) => (
-            <div key={idx} className="relative z-10 flex flex-col items-center text-center md:w-1/4 group">
-              <div className={`w-16 h-16 rounded-full bg-cetacean border-4 ${step.color} flex items-center justify-center mb-6 shadow-2xl transition-transform duration-300 group-hover:scale-110 z-10`}>
-                <span className="text-white font-black text-xl">{step.id}</span>
-              </div>
+            <div key={idx} className="relative z-10 flex flex-col items-center text-center md:w-1/5 group">
+              {step.gradient ? (
+                <div 
+                  className="w-16 h-16 mb-6 rounded-full shadow-2xl transition-transform duration-300 group-hover:scale-110 z-10 flex items-center justify-center"
+                  style={{ 
+                    background: 'linear-gradient(to right, #2FA3FA, #D8BF79)',
+                    padding: '4px'
+                  }}
+                >
+                  <div className="w-full h-full rounded-full bg-cetacean flex items-center justify-center">
+                    <span className="text-white font-black text-xl">{step.id}</span>
+                  </div>
+                </div>
+              ) : (
+                <div className={`w-16 h-16 mb-6 rounded-full bg-cetacean border-4 ${step.color} flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 z-10`}>
+                  <span className="text-white font-black text-xl">{step.id}</span>
+                </div>
+              )}
               <h5 className="text-white font-bold text-lg mb-2">{step.title}</h5>
               <p className="text-lavender/50 text-xs px-6 leading-relaxed max-w-[200px]">
                 {step.description}

@@ -1,6 +1,5 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI } from "@google/genai";
 
 const AIConsultant: React.FC = () => {
   const [prompt, setPrompt] = useState('');
@@ -21,30 +20,11 @@ const AIConsultant: React.FC = () => {
     setIsLoading(true);
     setResponse('');
     
-    try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const stream = await ai.models.generateContentStream({
-        model: 'gemini-3-flash-preview',
-        contents: `You are an expert CTO and Senior Software Architect at OneCodeLabs. 
-        A potential client is asking for a technical recommendation for their project idea.
-        The client says: "${prompt}"
-        
-        Provide a high-level architectural overview, suggested tech stack (leaning towards modern, scalable solutions), and potential challenges. 
-        Keep the tone professional, innovative, and encouraging. Use markdown formatting.`,
-      });
-
-      for await (const chunk of stream) {
-        const text = chunk.text;
-        if (text) {
-          setResponse(prev => prev + text);
-        }
-      }
-    } catch (error) {
-      console.error("Consultation error:", error);
-      setResponse("I apologize, but I encountered an error connecting to our neural core. Please try again or contact our human team directly.");
-    } finally {
+    // Simulate a brief loading delay for better UX
+    setTimeout(() => {
+      setResponse("Hey! 👋 Our AI Consultant will be available soon!\n\nWe're currently fine-tuning our architectural recommendation engine to provide you with the most accurate and valuable insights. In the meantime, feel free to reach out to our human team directly, and we'll be happy to discuss your project!\n\n✨ Coming Soon: Real-time tech stack recommendations, scalability insights, and strategic roadmap drafts.");
       setIsLoading(false);
-    }
+    }, 1000);
   };
 
   return (
