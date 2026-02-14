@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Metrics from './components/Metrics';
-import Services from './components/Services';
-import Products from './components/Products';
-import Process from './components/Process';
-import AIConsultant from './components/AIConsultant';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Navbar from './src/components/Navbar';
+import Hero from './src/components/Hero';
+import Metrics from './src/components/Metrics';
+import Services from './src/components/Services';
+import Products from './src/components/Products';
+import Process from './src/components/Process';
+import AIConsultant from './src/components/AIConsultant';
+import About from './src/components/About';
+import Contact from './src/components/Contact';
+import Footer from './src/components/Footer';
 
 const App: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });

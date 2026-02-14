@@ -1,5 +1,6 @@
 
 import React from 'react';
+import logoIcon from '../assets/Burlywood_icon.png';
 
 const RotatingRingLogo: React.FC = () => {
   const dots = 32;
@@ -110,7 +111,7 @@ const Hero: React.FC = () => {
         <div className="relative hidden lg:flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
           <div className="relative z-10">
             <img 
-              src="/assets/Burlywood_icon.png" 
+              src={logoIcon}
               alt="OneCodeLabs" 
               className="w-96 h-96 object-contain drop-shadow-[0_0_40px_rgba(216,191,121,0.5)] hover:drop-shadow-[0_0_60px_rgba(216,191,121,0.7)] transition-all duration-500 hover:scale-110" 
             />

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import logoIcon from '../public/assets/Burlywood_icon.png';
 
 const Footer: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-all cursor-pointer group">
           <div className="w-8 h-8 flex items-center justify-center bg-white rounded-full p-1 group-hover:scale-110 transition-transform shadow-inner">
-            <img src="/assets/Burlywood_icon.png" alt="OneCodeLabs" className="w-full h-full" />
+            <img src={logoIcon} alt="OneCodeLabs" className="w-full h-full" />
           </div>
           <h2 className="text-lg font-bold tracking-tighter text-white uppercase">OneCodeLabs</h2>
         </div>

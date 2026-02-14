@@ -1,5 +1,6 @@
 
 import React from 'react';
+import logoIcon from '../public/assets/Burlywood_icon.png';
 
 const Navbar: React.FC = () => {
   // Physics-based smooth scrolling with easing
@@ -50,7 +51,7 @@ const Navbar: React.FC = () => {
     <nav className="fixed top-0 w-full z-50 glass-nav">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img src="/assets/Burlywood_icon.png" alt="OneCodeLabs" className="w-10 h-10 drop-shadow-[0_0_8px_rgba(216,191,121,0.4)]" />
+          <img src={logoIcon} alt="OneCodeLabs" className="w-10 h-10 drop-shadow-[0_0_8px_rgba(216,191,121,0.4)]" />
           <h1 className="text-xl font-black tracking-tighter text-white uppercase pt-1">OneCodeLabs</h1>
         </div>
         

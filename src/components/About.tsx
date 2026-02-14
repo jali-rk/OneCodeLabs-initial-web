@@ -1,5 +1,6 @@
 
 import React from 'react';
+import logoIcon from '../public/assets/Burlywood_icon.png';
 
 const About: React.FC = () => {
   return (
@@ -49,7 +50,7 @@ const About: React.FC = () => {
             <div className="bg-gradient-to-b from-white/10 to-transparent p-10 md:p-14 space-y-10">
               <div className="flex gap-5 group/item">
                 <div className="w-12 h-12 flex-shrink-0 bg-primary/10 rounded-lg flex items-center justify-center p-1 transition-colors group-hover/item:bg-primary/20">
-                  <img src="/assets/Burlywood_icon.png" alt="OneCodeLabs" className="w-full h-full" />
+                  <img src={logoIcon} alt="OneCodeLabs" className="w-full h-full" />
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-xl mb-2">Integrated Ecosystems</h4>
